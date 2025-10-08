@@ -26,7 +26,7 @@ signal application_running
 
 
 ######################################
-##          Input Signals           ##
+##          Input Signals          ##
 ######################################
 signal input_action_triggered(action_name, event_type)
 signal set_input_mode(mode: Globals.FocusState)

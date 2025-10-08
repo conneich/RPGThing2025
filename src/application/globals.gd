@@ -1,7 +1,7 @@
 extends Node
 
 # TODO: Set game dimension type
-const GAME_IS_3D: bool = false
+const GAME_IS_3D: bool = true
 const GAME_VERSION: Dictionary = {
 	"major": 0,
 	"minor": 0,

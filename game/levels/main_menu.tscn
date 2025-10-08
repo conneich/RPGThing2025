@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhfei7o07er0b"]
 
-[ext_resource type="Script" path="res://game/levels/scripts/main_menu.gd" id="1_wdvqh"]
+[ext_resource type="Script" uid="uid://1vlo3akmboer" path="res://game/levels/scripts/main_menu.gd" id="1_wdvqh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_w2hda"]
 line_spacing = 10.0
@@ -111,8 +111,27 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
+[node name="DebugLevels" type="VBoxContainer" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Spacer1" type="TextureRect" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/DebugLevels"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TestLevel_btn" type="Button" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/DebugLevels"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/hover = SubResource("StyleBoxFlat_jedah")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_42fga")
+text = "Test Level"
+
+[node name="Spacer2" type="TextureRect" parent="VBoxContainer/Panel/MarginContainer/HBoxContainer/DebugLevels"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/Continue_btn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/NewGame_btn" to="." method="_on_new_game_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/LoadGame_btn2" to="." method="_on_load_game_btn_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/Settings_btn" to="." method="_on_settings_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/HBoxContainer/VBoxContainer/Quit_btn" to="." method="_on_quit_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/Panel/MarginContainer/HBoxContainer/DebugLevels/TestLevel_btn" to="." method="_on_test_level_btn_pressed"]

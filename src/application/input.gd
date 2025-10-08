@@ -116,6 +116,7 @@ func _get_last_action_duration() -> float:
 func _apply_input():
 	# Clear existing input map
 	for action in InputMap.get_actions():
+		_check_input_validity(action)
 		InputMap.erase_action(action)
 	
 	#Apply loaded key mappings
@@ -123,6 +124,11 @@ func _apply_input():
 		InputMap.add_action(action_name)
 		for event in Keymap[action_name]:
 			InputMap.action_add_event(action_name, event)
+
+func _check_input_validity(action):
+	# Check that an input is valid in the Resource and Keymap
+	if Keymap.keys().size() > 0 and Keymap.find_key(action) == null:
+		Keymap.set(action, (InputMap.action_get_events(action)))
 
 func set_controller(new_setting: bool):
 	_using_controller = new_setting

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://8gnptwbkq0p4"]
 
-[ext_resource type="Script" path="res://src/player/fps_controller.gd" id="1_ynvsb"]
+[ext_resource type="Script" uid="uid://7h0j7g7eum04" path="res://src/player/player_controller.gd" id="1_ynvsb"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_oiwn1"]
 
@@ -39,11 +39,21 @@ material = SubResource("StandardMaterial3D_xw2wd")
 [node name="EyePosition" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 1.77, 0)
 
-[node name="Viewpoint" type="Camera3D" parent="EyePosition"]
+[node name="FPSViewpoint" type="Camera3D" parent="EyePosition"]
+unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="ShapeCast3D" type="ShapeCast3D" parent="EyePosition"]
+[node name="LookAtCollider" type="ShapeCast3D" parent="EyePosition"]
 transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
 shape = SubResource("CylinderShape3D_306wc")
 collision_mask = 2147483646
+collide_with_areas = true
 debug_shape_custom_color = Color(1, 1, 0, 1)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="EyePosition"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)
+collision_mask = 2
+spring_length = 3.0
+
+[node name="TPSViewpoint" type="Camera3D" parent="EyePosition/SpringArm3D"]
+unique_name_in_owner = true

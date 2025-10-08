@@ -31,3 +31,7 @@ func _on_load_game_btn_2_pressed() -> void:
 
 func _on_settings_btn_pressed() -> void:
 	Interface.add_menu(Game._settings_scene)
+
+
+func _on_test_level_btn_pressed() -> void:
+	Level.load_level("res://game/levels/testing/test_level.tscn")
